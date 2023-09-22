@@ -7,6 +7,7 @@ import 'package:google_mlkit_object_detection/google_mlkit_object_detection.dart
 import 'package:image_picker/image_picker.dart';
 import 'dart:ui' as ui;
 import 'package:path_provider/path_provider.dart';
+import '../home_page.dart';
 import '/widget/gallery_cam_object_painter.dart';
 
 class GalleryAndCamera extends StatefulWidget {
@@ -84,42 +85,55 @@ class _GalleryAndCameraState extends State<GalleryAndCamera> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          backgroundColor: const Color.fromARGB(255, 42, 16, 137),
           title: const Text("Object Detector"),
         ),
-        body: ListView(
-          children: [
-            Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: <Widget>[
-                  Center(
-                    child: Container(
-                      width: 350,
-                      height: 350,
-                      margin: const EdgeInsets.only(
-                        top: 45,
+        body: Container(
+          decoration: const BoxDecoration(
+            gradient: gradient,
+          ),
+          child: ListView(
+            children: [
+              Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    Center(
+                      child: Container(
+                        width: 350,
+                        height: 350,
+                        margin: const EdgeInsets.only(
+                          top: 45,
+                        ),
+                        child: image != null
+                            ? ImageLabeledSection(
+                                image: image, objects: objects)
+                            : const EmptySection(),
                       ),
-                      child: image != null
-                          ? ImageLabeledSection(image: image, objects: objects)
-                          : const EmptySection(),
                     ),
-                  ),
-                  const SizedBox(
-                    height: 100,
-                  ),
-                  ElevatedButton.icon(
-                    icon: const Icon(Icons.image),
-                    label: const Text('Camera'),
-                    onPressed: pickImage,
-                  ),
-                  ElevatedButton.icon(
-                      icon: const Icon(Icons.camera),
-                      label: const Text('Gallery'),
-                      onPressed: () => pickImage(cameraSource: false))
-                ],
+                    const SizedBox(
+                      height: 100,
+                    ),
+                    ElevatedButton.icon(
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor:
+                              const Color.fromARGB(255, 42, 16, 137)),
+                      icon: const Icon(Icons.image),
+                      label: const Text('Camera'),
+                      onPressed: pickImage,
+                    ),
+                    ElevatedButton.icon(
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor:
+                                const Color.fromARGB(255, 42, 16, 137)),
+                        icon: const Icon(Icons.camera),
+                        label: const Text('Gallery'),
+                        onPressed: () => pickImage(cameraSource: false))
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ));
   }
 }
@@ -159,7 +173,7 @@ class EmptySection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.blue,
+      color: const Color.fromARGB(255, 42, 16, 137),
       width: double.infinity,
       height: 400,
       child: const Icon(

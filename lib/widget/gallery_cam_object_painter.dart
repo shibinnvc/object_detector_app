@@ -13,7 +13,7 @@ class GalleryCameraObjectPainter extends CustomPainter {
       canvas.drawImage(imageFile, Offset.zero, Paint());
     }
     Paint p = Paint();
-    p.color = Colors.red;
+    p.color = const Color.fromARGB(255, 42, 16, 137);
     p.style = PaintingStyle.stroke;
     p.strokeWidth = 10;
 

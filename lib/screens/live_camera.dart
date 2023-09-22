@@ -110,7 +110,7 @@ class _LiveCameraState extends State<LiveCamera> {
     return inputImage;
   }
 
-  //Show rectangles around detected objects
+  //Here label rectangles around detected objects
   Widget buildResult() {
     if (_scanResults.isEmpty ||
         controller == null ||
@@ -163,7 +163,7 @@ class _LiveCameraState extends State<LiveCamera> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Object detector"),
-        backgroundColor: Colors.brown,
+        backgroundColor: const Color.fromARGB(255, 42, 16, 137),
       ),
       backgroundColor: Colors.black,
       body: Container(

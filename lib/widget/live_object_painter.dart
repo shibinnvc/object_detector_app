@@ -15,7 +15,7 @@ class LiveObjectPainter extends CustomPainter {
     final Paint paint = Paint()
       ..style = PaintingStyle.stroke
       ..strokeWidth = 2.0
-      ..color = Colors.pinkAccent;
+      ..color = const Color.fromARGB(255, 42, 16, 137);
 
     for (DetectedObject detectedObject in objects) {
       canvas.drawRect(
@@ -30,7 +30,6 @@ class LiveObjectPainter extends CustomPainter {
 
       var list = detectedObject.labels;
       for (Label label in list) {
-        print("${label.text}   ${label.confidence.toStringAsFixed(2)}");
         TextSpan span = TextSpan(
             text: label.text,
             style: const TextStyle(fontSize: 25, color: Colors.blue));
