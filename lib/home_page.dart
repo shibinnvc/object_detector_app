@@ -8,6 +8,7 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          backgroundColor: const Color.fromARGB(255, 29, 54, 42),
           title: const Text("Object Detector App"),
           centerTitle: true,
         ),
